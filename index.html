@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO Meta Tags -->
+  <title>Online Screen Test & Dead Pixel Checker Utility | Touch Screen & Monitor Test</title>
+  <meta name="title" content="Online Screen Test & Dead Pixel Checker Utility | Touch Screen & Monitor Test">
+  <meta name="description" content="Free online screen test and dead pixel checker utility. Test Dell, HP, Lenovo, Samsung, and local/China LCD displays, laptops, and touch screens for dead pixels, black screen bleed, and color uniformity.">
+  <meta name="keywords" content="screen test, dead pixel test, black screen, touch screen test online, dead pixel checker, laptop screen test, monitor test online, lcd screen test">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mic-testpro.vercel.app/screen-test.html">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mic-testpro.vercel.app/screen-test.html">
+  <meta property="og:title" content="Online Screen Test & Dead Pixel Checker Utility">
+  <meta property="og:description" content="Inspect laptop screens, branded monitors, and local/China LCD panels for dead pixels, black screen bleed, and color uniformity.">
+
+  <!-- JSON-LD Structured Data for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Online Screen Test & Dead Pixel Checker Utility",
+    "url": "https://mic-testpro.vercel.app/screen-test.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Interactive web utility for testing branded and local LCD monitors, laptop screens, and touch displays for dead pixels, black screen backlight bleed, and color accuracy."
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: #111827;
+      --border-color: #1f2937;
+      --accent-glow: #38bdf8;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 0.8rem;
+      max-width: 800px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: var(--accent-glow);
+      margin-bottom: 0.3rem;
+      text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.6rem;
+    }
+
+    /* Cross-Promo Banners */
+    .promo-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .promo-banner {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid #334155;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .promo-banner a {
+      color: var(--accent-glow);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .promo-banner a:hover {
+      text-decoration: underline;
+    }
+
+    /* Configuration Panel */
+    .config-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      max-width: 900px;
+      width: 100%;
+      margin-bottom: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .form-group label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    .form-group select {
+      background: #1f2937;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 0.5rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    /* Main Dashboard */
+    .dashboard {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 1.25rem;
+      border-radius: 12px;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .dashboard h2 {
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+    }
+
+    .dashboard p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .color-btn {
+      padding: 0.7rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: transform 0.1s, opacity 0.2s;
+    }
+    .color-btn:hover {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+
+    #btn-black { background: #000000; color: #fff; border: 1px solid #334155; }
+    #btn-white { background: #ffffff; color: #000; }
+    #btn-red { background: #ef4444; color: #fff; }
+    #btn-green { background: #22c55e; color: #fff; }
+    #btn-blue { background: #3b82f6; color: #fff; }
+    #btn-yellow { background: #eab308; color: #000; }
+    #btn-cyan { background: #06b6d4; color: #000; }
+    #btn-magenta { background: #ec4899; color: #fff; }
+    #btn-grid { background: #334155; color: #fff; }
+
+    .instructions {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: #1e293b;
+      padding: 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #334155;
+    }
+
+    /* Fullscreen Overlay Test Screen */
+    #fullscreen-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      z-index: 9999;
+      cursor: pointer;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .exit-hint {
+      position: absolute;
+      bottom: 20px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      pointer-events: none;
+      border: 1px solid #334155;
+    }
+
+    /* SEO Article & Content Section */
+    .seo-content {
+      max-width: 900px;
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      color: #d1d5db;
+      line-height: 1.6;
+    }
+
+    .seo-content h2 {
+      color: var(--accent-glow);
+      font-size: 1.15rem;
+      margin-top: 1rem;
+      margin-bottom: 0.4rem;
+    }
+    .seo-content h2:first-of-type {
+      margin-top: 0;
+    }
+    .seo-content p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+    .seo-content ul {
+      margin-left: 1.2rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Online Screen Test & Dead Pixel Checker</h1>
+    <p class="subtitle">Test laptop displays, desktop monitors, and touch screens for dead pixels, black screen bleed, and color uniformity.</p>
+  </header>
+
+  <!-- Cross Promotion Links -->
+  <div class="promo-bar">
+    <div class="promo-banner">
+      🎙️ <a href="https://mic-testpro.vercel.app/" target="_blank">Online Mic Test Utility 🎤</a>
+    </div>
+    <div class="promo-banner">
+      ⌨️ <a href="https://keyboardtest-pro.vercel.app/" target="_blank">Keyboard Test Pro ⌨️</a>
+    </div>
+  </div>
+
+  <!-- Hardware Configurator -->
+  <div class="config-box">
+    <div class="form-group">
+      <label for="brand-select">Monitor / LCD Brand Category</label>
+      <select id="brand-select">
+        <option value="dell">Dell LCD / UltraSharp</option>
+        <option value="hp">HP Compaq / ProDisplay</option>
+        <option value="lenovo">Lenovo ThinkVision / IdeaPad</option>
+        <option value="samsung">Samsung SyncMaster / LED</option>
+        <option value="lg">LG IPS Panel</option>
+        <option value="acer">Acer / ASUS Gaming Display</option>
+        <option value="apple">Apple Retina Display / MacBook</option>
+        <option value="china">China Unbranded / Commercial LCD Panel</option>
+        <option value="local">Local Assembled Monitor / CCTV LED</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="size-select">Display Size (Inches)</label>
+      <select id="size-select">
+        <option value="14">14 Inches (Standard Laptop)</option>
+        <option value="15.6" selected>15.6 Inches (Standard Laptop)</option>
+        <option value="17">17 Inches (Desktop / Laptop)</option>
+        <option value="19">19 Inches (Standard LCD)</option>
+        <option value="22">22 Inches (Widescreen Monitor)</option>
+        <option value="24">24 Inches (FHD Monitor)</option>
+        <option value="27">27 Inches (QHD / 4K Monitor)</option>
+        <option value="32">32+ Inches (Large Screen / TV)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="ratio-select">Screen Aspect Ratio</label>
+      <select id="ratio-select">
+        <option value="wide" selected>Widescreen (16:9 / 16:10)</option>
+        <option value="square">Square / Box Monitor (4:3 / 5:4)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Test Dashboard -->
+  <div class="dashboard">
+    <h2>Select Fullscreen Test Screen</h2>
+    <p>Click any color channel below to enter fullscreen test mode. Tap anywhere or press <strong>ESC</strong> to exit.</p>
+
+    <div class="color-grid">
+      <button class="color-btn" id="btn-black" onclick="startTest('#000000')">Black Screen Bleed</button>
+      <button class="color-btn" id="btn-white" onclick="startTest('#ffffff')">Pure White</button>
+      <button class="color-btn" id="btn-red" onclick="startTest('#ef4444')">Red Channel</button>
+      <button class="color-btn" id="btn-green" onclick="startTest('#22c55e')">Green Channel</button>
+      <button class="color-btn" id="btn-blue" onclick="startTest('#3b82f6')">Blue Channel</button>
+      <button class="color-btn" id="btn-yellow" onclick="startTest('#eab308')">Yellow</button>
+      <button class="color-btn" id="btn-cyan" onclick="startTest('#06b6d4')">Cyan</button>
+      <button class="color-btn" id="btn-magenta" onclick="startTest('#ec4899')">Magenta</button>
+      <button class="color-btn" id="btn-grid" onclick="startTest('grid')">Alignment Grid</button>
+    </div>
+
+    <div class="instructions">
+      💡 <strong>Testing Tip:</strong> Use <strong>Black Screen</strong> mode in a dark room to test for backlight bleeding and stuck pixels. Use <strong>Pure White & Color channels</strong> to detect dead black pixels.
+    </div>
+  </div>
+
+  <!-- Fullscreen Test Overlay -->
+  <div id="fullscreen-overlay" onclick="exitTest()">
+    <div class="exit-hint" id="overlay-hint">Tap anywhere or press ESC to exit test</div>
+  </div>
+
+  <!-- SEO Content Section -->
+  <section class="seo-content">
+    <h2>How to Test Your LCD Monitor & Laptop Screen for Dead Pixels</h2>
+    <p>A dead pixel remains permanently unlit and appears as a tiny black dot on solid color backgrounds. A stuck pixel stays illuminated in a single RGB color (red, green, or blue). By cycling through fullscreen primary colors, you can inspect any Dell, HP, Lenovo, or local/Chinese LCD panel for panel defects.</p>
+
+    <h2>Checking Black Screen Backlight Bleed & Touch Screen Uniformity</h2>
+    <p>Backlight bleeding occurs when light leaks from the edges of an LCD panel, which is most visible on a full <strong>Black Screen</strong> in dim lighting. Our online touch screen test tool also helps verify response uniformities across square and widescreen displays.</p>
+
+    <h2>Supported Displays & Aspect Ratios</h2>
+    <ul>
+      <li><strong>Brand Panels:</strong> Dell, HP, Lenovo, Samsung, LG, Acer, ASUS, and Apple MacBooks.</li>
+      <li><strong>Commercial & Local Panels:</strong> Unbranded Chinese LCD panels, CCTV monitors, and locally assembled LED displays.</li>
+      <li><strong>Aspect Ratios:</strong> Standard Widescreen (16:9/16:10) and Classic Square (4:3/5:4) monitors.</li>
+    </ul>
+  </section>
+
+  <script>
+    const overlay = document.getElementById('fullscreen-overlay');
+    const overlayHint = document.getElementById('overlay-hint');
+
+    function startTest(colorValue) {
+      const brand = document.getElementById('brand-select').selectedOptions[0].text;
+      const size = document.getElementById('size-select').value;
+      const ratio = document.getElementById('ratio-select').selectedOptions[0].text;
+
+      overlayHint.textContent = `[${brand} - ${size}" (${ratio})] Tap anywhere or press ESC to exit`;
+
+      if (colorValue === 'grid') {
+        overlay.style.background = '#ffffff';
+        overlay.style.backgroundImage = 'linear-gradient(to right, #cbd5e1 1px, transparent 1px), linear-gradient(to bottom, #cbd5e1 1px, transparent 1px)';
+        overlay.style.backgroundSize = '40px 40px';
+      } else {
+        overlay.style.backgroundImage = 'none';
+        overlay.style.background = colorValue;
+      }
+      
+      overlay.style.display = 'flex';
+      
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      }
+    }
+
+    function exitTest() {
+      overlay.style.display = 'none';
+      if (document.fullscreenElement && document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        exitTest();
+      }
+    });
+  </script>
+</body>
+</html>
