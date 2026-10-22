@@ -16,3 +16,6 @@ Upload these files to the root of the existing `screen-test-pro` repository.
 5. Test each colour button, grid, exit controls, and every footer link on desktop and mobile.
 
 The AdSense loader is present, but this package does not add ad slots or imply approval. AdSense approval and serving must be confirmed in your own AdSense account. Review the legal pages against your actual analytics/advertising configuration before publishing.
+
+
+The homepage includes optional display brand, screen-size, and aspect-ratio selectors, plus links to Keyboard Test Pro, NetSetGo Pro, and Mic Test Pro. These selectors are informational and do not claim to identify the user's hardware automatically.

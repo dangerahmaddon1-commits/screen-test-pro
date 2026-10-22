@@ -47,9 +47,13 @@ footer{padding:24px 0 40px;text-align:center;color:var(--muted);font-size:.92rem
 <h2>Full-screen display test</h2>
 <p>Choose a test below. The test fills your screen; tap or click the screen, or press Escape, to return.</p>
 <div class="controls">
+<div><label for="brand">Display brand</label><select id="brand"><option value="">Choose a brand (optional)</option><option>Apple</option><option>Acer</option><option>ASUS</option><option>BenQ</option><option>Dell</option><option>Gigabyte</option><option>HP</option><option>Huawei</option><option>Lenovo</option><option>LG</option><option>MSI</option><option>Samsung</option><option>Sony</option><option>Other / unknown</option></select></div>
+<div><label for="screenSize">Screen size</label><select id="screenSize"><option value="">Choose size (optional)</option><option>Under 6 inches (phone)</option><option>6–8 inches (small tablet)</option><option>9–13 inches</option><option>14–16 inches</option><option>17–24 inches</option><option>25–32 inches</option><option>33 inches or larger</option></select></div>
+<div><label for="aspectRatio">Aspect ratio</label><select id="aspectRatio"><option value="">Choose ratio (optional)</option><option>16:9</option><option>16:10</option><option>21:9</option><option>32:9</option><option>4:3</option><option>3:2</option><option>Other / unknown</option></select></div>
 <div><label for="pattern">Grid size</label><select id="pattern"><option value="32">Fine grid</option><option value="48" selected>Medium grid</option><option value="72">Wide grid</option></select></div>
 <div><label for="brightnessTip">Before testing</label><select id="brightnessTip"><option>Use your usual brightness</option><option>Lower brightness in a dim room</option><option>Raise brightness for colour inspection</option></select></div>
 </div>
+<p class="note">Brand, size, and aspect ratio are optional reference settings only. They do not change the colour patterns or automatically detect your display model.</p>
 <div class="colors" aria-label="Choose a screen test">
 <button class="color black" data-test="black">Black screen</button><button class="color white" data-test="white">White screen</button>
 <button class="color red" data-test="#f00028">Red</button><button class="color green" data-test="#00b94f">Green</button>
@@ -72,6 +76,15 @@ footer{padding:24px 0 40px;text-align:center;color:var(--muted);font-size:.92rem
 <h3>Using the test on a phone or tablet</h3>
 <p>Open the page in a modern mobile browser, turn off overlays such as picture-in-picture, and tap a colour button. If browser fullscreen is unavailable, the colour test still appears across the page; use the on-screen exit control or your browser’s back/navigation controls.</p>
 </section>
+<section class="panel content" id="other-tools">
+<h2>More free testing tools</h2>
+<p>Try the other free browser-based utilities in our tool collection:</p>
+<ul>
+<li><a href="https://keyboardtest-pro.vercel.app/">Keyboard Test Pro</a> — check keyboard keys and input response.</li>
+<li><a href="https://netsetgopro.vercel.app/">NetSetGo Pro</a> — use the network utility tools.</li>
+<li><a href="https://mic-testpro.vercel.app/">Mic Test Pro</a> — test your microphone, input level, and recording playback.</li>
+</ul>
+</section>
 <section class="panel content" id="limitations">
 <h2>Important limitations</h2>
 <ul><li>This is a visual inspection aid, not a hardware diagnostic or manufacturer warranty test.</li><li>Results depend on the display, brightness, ambient light, browser, and device settings.</li><li>Touchscreen response, refresh rate, colour accuracy, HDR performance, and calibration are not measured by these colour screens.</li><li>The brand and size of a display do not change the test itself; use the patterns to inspect the panel you are viewing.</li></ul>
@@ -81,7 +94,7 @@ footer{padding:24px 0 40px;text-align:center;color:var(--muted);font-size:.92rem
 <h3>Does it upload a screenshot or scan my display?</h3><p>No screenshot or display scan is uploaded by this page. The tool changes the page’s displayed pattern; it cannot directly inspect the physical panel or detect a defect automatically.</p>
 </section>
 </main>
-<footer><div><a href="/about.html">About</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms.html">Terms</a><a href="/contact.html">Contact</a></div><p>Screen Test Pro is an independent visual testing utility and is not affiliated with display manufacturers.</p></footer>
+<footer><div><a href="/about.html">About</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms.html">Terms</a><a href="/contact.html">Contact</a></div><div aria-label="Other free tools"><a href="https://keyboardtest-pro.vercel.app/">Keyboard Test Pro</a><a href="https://netsetgopro.vercel.app/">NetSetGo Pro</a><a href="https://mic-testpro.vercel.app/">Mic Test Pro</a></div><p>Screen Test Pro is an independent visual testing utility and is not affiliated with display manufacturers.</p></footer>
 </div>
 <div id="testScreen" role="button" tabindex="0" aria-label="Full-screen test. Tap or press Escape to exit"><span id="exitHint">Tap or press Escape to exit</span></div>
 <script>
