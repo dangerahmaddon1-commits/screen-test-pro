@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Screen Test Pro — Free Monitor and Dead Pixel Test</title>
+<meta name="description" content="Use Screen Test Pro to inspect your display with full-screen solid colours, a contrast grid, and practical guidance for spotting pixel and uniformity issues.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://screentestpropro.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Screen Test Pro — Free Monitor and Dead Pixel Test">
+<meta property="og:description" content="Run full-screen colour and grid checks on a monitor, laptop, tablet, or phone display.">
+<meta property="og:url" content="https://screentestpropro.vercel.app/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8537779348532569" crossorigin="anonymous"></script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+:root{color-scheme:dark;--bg:#0b1020;--panel:#121a2c;--line:#293650;--text:#f5f7ff;--muted:#b5bfd3;--accent:#60d5fa}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#162642,var(--bg) 55%);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent)}button,select{font:inherit}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #fbbf24;outline-offset:3px}
+.wrap{width:min(1080px,100% - 32px);margin:auto}header{padding:34px 0 20px;text-align:center}h1{font-size:clamp(1.8rem,5vw,3rem);line-height:1.15;margin:0 0 12px}header p{max-width:720px;margin:auto;color:var(--muted)}
+nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:20px 0 26px}nav a{border:1px solid var(--line);background:#111b2d;border-radius:999px;padding:8px 13px;text-decoration:none;font-size:.9rem}
+.panel{background:rgba(18,26,44,.96);border:1px solid var(--line);border-radius:18px;padding:clamp(16px,3vw,28px);margin:0 0 20px;box-shadow:0 16px 40px #0002}
+h2{font-size:1.35rem;line-height:1.3;margin:0 0 10px}h3{font-size:1.05rem;margin:20px 0 6px}p,li{color:var(--muted)}.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:14px;margin:18px 0}
+label{display:block;font-weight:650;margin-bottom:6px}select{width:100%;padding:11px;border-radius:10px;border:1px solid #41516d;background:#0b1323;color:var(--text)}
+.colors{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,145px),1fr));gap:10px;margin:16px 0}
+.color{border:0;border-radius:10px;min-height:52px;padding:12px;font-weight:750;cursor:pointer;transition:transform .12s}.color:hover{transform:translateY(-2px)}
+.black{background:#000;color:white;border:1px solid #5a6478}.white{background:#fff;color:#111}.red{background:#f00028;color:#fff}.green{background:#00b94f;color:#001b0b}.blue{background:#075cff;color:#fff}.gray{background:#808080;color:#fff}.yellow{background:#ffe500;color:#111}.cyan{background:#00e5ee;color:#111}.magenta{background:#f000d8;color:#fff}.gridbtn{background:#344563;color:#fff}
+.secondary{background:#263752;color:#fff;border:1px solid #526482;border-radius:10px;padding:10px 14px;cursor:pointer}
+.note{border-left:4px solid var(--accent);padding:10px 14px;background:#0b1728;border-radius:0 10px 10px 0;color:var(--muted)}
+#testScreen{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;touch-action:manipulation;cursor:pointer}
+#exitHint{position:absolute;bottom:max(18px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:max-content;max-width:90vw;text-align:center;background:#000c;color:#fff;padding:9px 15px;border:1px solid #ffffff66;border-radius:999px;font-size:.9rem}
+.content{max-width:850px}.content h2{margin-top:28px}.content h2:first-child{margin-top:0}.content ul{padding-left:22px}
+footer{padding:24px 0 40px;text-align:center;color:var(--muted);font-size:.92rem}footer div{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+@media(max-width:520px){.wrap{width:min(100% - 20px,1080px)}header{padding-top:25px}.panel{border-radius:14px}.colors{grid-template-columns:repeat(2,minmax(0,1fr))}.color{min-height:56px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>Screen Test Pro</h1>
+<p>Free, browser-based display checks for monitors, laptops, tablets, and phones. Use solid colours and a grid to inspect your screen carefully.</p>
+<nav aria-label="Main navigation"><a href="#tester">Screen tester</a><a href="#guide">How to test</a><a href="#limitations">Limitations</a></nav>
+</header>
+<main>
+<section class="panel" id="tester">
+<h2>Full-screen display test</h2>
+<p>Choose a test below. The test fills your screen; tap or click the screen, or press Escape, to return.</p>
+<div class="controls">
+<div><label for="pattern">Grid size</label><select id="pattern"><option value="32">Fine grid</option><option value="48" selected>Medium grid</option><option value="72">Wide grid</option></select></div>
+<div><label for="brightnessTip">Before testing</label><select id="brightnessTip"><option>Use your usual brightness</option><option>Lower brightness in a dim room</option><option>Raise brightness for colour inspection</option></select></div>
+</div>
+<div class="colors" aria-label="Choose a screen test">
+<button class="color black" data-test="black">Black screen</button><button class="color white" data-test="white">White screen</button>
+<button class="color red" data-test="#f00028">Red</button><button class="color green" data-test="#00b94f">Green</button>
+<button class="color blue" data-test="#075cff">Blue</button><button class="color gray" data-test="#808080">Gray</button>
+<button class="color yellow" data-test="#ffe500">Yellow</button><button class="color cyan" data-test="#00e5ee">Cyan</button>
+<button class="color magenta" data-test="#f000d8">Magenta</button><button class="color gridbtn" data-test="grid">Alignment grid</button>
+</div>
+<p class="note">Tip: inspect each solid colour for pixels that look different from the surrounding area. Use a black screen in a dim room to look for uneven glow, but remember that normal LCD glow and camera exposure can affect what you see.</p>
+<button class="secondary" id="exitButton" type="button" hidden>Exit test</button>
+</section>
+<section class="panel content" id="guide">
+<h2>How to check a monitor for pixel problems</h2>
+<p>Clean the display gently before testing and view it from a normal position. Open each colour in turn and scan the panel in a consistent pattern. A pixel that remains dark or shows an unusual colour across several backgrounds may be defective, but dust, reflections, image scaling, and viewing angle can be misleading.</p>
+<h3>What the colour screens help you see</h3>
+<ul><li><strong>White and light colours:</strong> useful for spotting dark specks and uneven brightness.</li><li><strong>Black:</strong> can help reveal bright spots or uneven backlight glow on LCD displays.</li><li><strong>Red, green, and blue:</strong> help identify pixels or subpixels that do not change as expected.</li><li><strong>Gray:</strong> useful for noticing some forms of brightness non-uniformity.</li><li><strong>Alignment grid:</strong> provides a simple visual reference for screen geometry; it is not a precision calibration tool.</li></ul>
+<h3>What are dead and stuck pixels?</h3>
+<p>A dead pixel may remain dark, while a stuck pixel or subpixel may remain bright or show one colour. The appearance varies by display technology and defect. One short browser test cannot conclusively diagnose every panel issue.</p>
+<h3>Checking backlight uniformity</h3>
+<p>For an LCD, display a black screen in a dim room and look for unusually bright areas near edges or corners. Some glow can be normal and can vary with viewing angle and brightness. OLED displays behave differently and may not show LCD-style backlight bleed.</p>
+<h3>Using the test on a phone or tablet</h3>
+<p>Open the page in a modern mobile browser, turn off overlays such as picture-in-picture, and tap a colour button. If browser fullscreen is unavailable, the colour test still appears across the page; use the on-screen exit control or your browser’s back/navigation controls.</p>
+</section>
+<section class="panel content" id="limitations">
+<h2>Important limitations</h2>
+<ul><li>This is a visual inspection aid, not a hardware diagnostic or manufacturer warranty test.</li><li>Results depend on the display, brightness, ambient light, browser, and device settings.</li><li>Touchscreen response, refresh rate, colour accuracy, HDR performance, and calibration are not measured by these colour screens.</li><li>The brand and size of a display do not change the test itself; use the patterns to inspect the panel you are viewing.</li></ul>
+<h2>Frequently asked questions</h2>
+<h3>Can this tool repair a dead pixel?</h3><p>No. It displays test patterns only. It cannot repair physical panel damage or guarantee that a stuck pixel can be restored.</p>
+<h3>Does the test work on mobile?</h3><p>The colour and grid patterns are designed to adapt to mobile screens. Fullscreen behaviour depends on the browser and operating system, so an on-screen exit control is provided as a fallback.</p>
+<h3>Does it upload a screenshot or scan my display?</h3><p>No screenshot or display scan is uploaded by this page. The tool changes the page’s displayed pattern; it cannot directly inspect the physical panel or detect a defect automatically.</p>
+</section>
+</main>
+<footer><div><a href="/about.html">About</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms.html">Terms</a><a href="/contact.html">Contact</a></div><p>Screen Test Pro is an independent visual testing utility and is not affiliated with display manufacturers.</p></footer>
+</div>
+<div id="testScreen" role="button" tabindex="0" aria-label="Full-screen test. Tap or press Escape to exit"><span id="exitHint">Tap or press Escape to exit</span></div>
+<script>
+(function(){
+ const screen=document.getElementById('testScreen'), hint=document.getElementById('exitHint'), exitButton=document.getElementById('exitButton'), pattern=document.getElementById('pattern');
+ let active=false;
+ function start(value){
+  active=true; screen.style.display='flex'; exitButton.hidden=false;
+  screen.style.backgroundImage='none'; screen.style.backgroundColor='#000';
+  if(value==='black') screen.style.backgroundColor='#000';
+  else if(value==='white') screen.style.backgroundColor='#fff';
+  else if(value==='grid'){
+   const size=Math.max(16,Number(pattern.value)||48);
+   screen.style.backgroundColor='#fff';
+   screen.style.backgroundImage='linear-gradient(to right,#aab4c5 1px,transparent 1px),linear-gradient(to bottom,#aab4c5 1px,transparent 1px)';
+   screen.style.backgroundSize=size+'px '+size+'px';
+  } else screen.style.backgroundColor=value;
+  hint.style.color=(value==='white'||value==='grid'||value==='#ffe500'||value==='#00e5ee')?'#111':'#fff';
+  hint.style.backgroundColor=(value==='white'||value==='grid'||value==='#ffe500'||value==='#00e5ee')?'#ffffffd9':'#000c';
+  if(document.documentElement.requestFullscreen && !document.fullscreenElement){
+   const p=document.documentElement.requestFullscreen(); if(p&&p.catch)p.catch(()=>{});
+  }
+ }
+ function stop(){
+  if(!active)return; active=false; screen.style.display='none'; screen.style.backgroundImage='none'; exitButton.hidden=true;
+  if(document.fullscreenElement&&document.exitFullscreen){const p=document.exitFullscreen();if(p&&p.catch)p.catch(()=>{});}
+ }
+ document.querySelectorAll('[data-test]').forEach(b=>b.addEventListener('click',()=>start(b.dataset.test)));
+ screen.addEventListener('click',stop); screen.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='Enter'||e.key===' '){e.preventDefault();stop();}});
+ exitButton.addEventListener('click',stop);
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')stop();});
+ document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&active){/* Keep the test visible if the browser exits fullscreen; tap to exit. */}});
+})();
+</script>
+</body>
+</html>
